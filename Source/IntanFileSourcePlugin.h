@@ -26,15 +26,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define FILESOURCEPLUGIN_H_DEFINED
 
 #include <FileSourceHeaders.h>
+#include "rhx/cnsrhx.h"
 
-class FileSourcePlugin : public FileSource
+class IntanFileSourcePlugin : public FileSource
 {
+	IntanHeaderInfo m_intanHeaderInfo;
+
 public:
 	/** The class constructor, used to initialize any members. */
-	FileSourcePlugin();
+	IntanFileSourcePlugin();
 
 	/** The class destructor, used to deallocate memory */
-	~FileSourcePlugin();
+	~IntanFileSourcePlugin();
 
     // ------------------------------------------------------------
     //                  PURE VIRTUAL METHODS 

@@ -21,49 +21,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-#include "FileSourcePlugin.h"
+#include "IntanFileSourcePlugin.h"
+#include <exception>
 
-FileSourcePlugin::FileSourcePlugin()
+IntanFileSourcePlugin::IntanFileSourcePlugin()
 {
 
 }
 
-FileSourcePlugin::~FileSourcePlugin()
+IntanFileSourcePlugin::~IntanFileSourcePlugin()
 {
 	
 }
 
-bool FileSourcePlugin::open(File file)
+bool IntanFileSourcePlugin::open(File file)
 {
+	bool b;
+	try
+	{
+		b = readIntanHeader(m_intanHeaderInfo)
+	}
+	catch (std::exception &e)
 	return true;
 }
 
-void FileSourcePlugin::fillRecordInfo()
+void IntanFileSourcePlugin::fillRecordInfo()
 {
 
 }
 
-void FileSourcePlugin::updateActiveRecord(int index)
+void IntanFileSourcePlugin::updateActiveRecord(int index)
 {
 
 }
 
-void FileSourcePlugin::seekTo(int64 sample)
+void IntanFileSourcePlugin::seekTo(int64 sample)
 {
 
 }
 
-int FileSourcePlugin::readData(int16* buffer, int nSamples)
+int IntanFileSourcePlugin::readData(int16* buffer, int nSamples)
 {
 	return nSamples;
 }
 
-void FileSourcePlugin::processChannelData(int16* inBuffer, float* outBuffer, int channel, int64 nSamples)
+void IntanFileSourcePlugin::processChannelData(int16* inBuffer, float* outBuffer, int channel, int64 nSamples)
 {
 
 }
 
-void FileSourcePlugin::processEventData(EventInfo& info, int64 startTimestamp, int64 stopTimestamp)
+void IntanFileSourcePlugin::processEventData(EventInfo& info, int64 startTimestamp, int64 stopTimestamp)
 {
 
 }

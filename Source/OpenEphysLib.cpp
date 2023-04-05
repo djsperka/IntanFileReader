@@ -22,9 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <PluginInfo.h>
 
-#include "FileSourcePlugin.h"
-
 #include <string>
+#include "IntanFileSourcePlugin.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -43,7 +42,7 @@ extern "C" EXPORT void getLibInfo(Plugin::LibraryInfo* info)
 	Should not be changed to ensure it is always equal to the one used in the latest codebase.
 	The GUI refuses to load plugins with mismatched API versions */
 	info->apiVersion = PLUGIN_API_VER;
-	info->name = "FileSourceLibrary"; // <---- update
+	info->name = "IntanFileSourceLibrary"; // <---- update
 	info->libVersion = "0.1.0"; // <---- update
 	info->numPlugins = NUM_PLUGINS;
 }
@@ -56,9 +55,9 @@ extern "C" EXPORT int getPluginInfo(int index, Plugin::PluginInfo* info)
 	case 0:
 
 		info->type = Plugin::Type::FILE_SOURCE;
-		info->fileSource.name = "Custom Source";
-		info->fileSource.extensions = "csv"; //Semicolon separated list of supported extensions. Eg: "txt;dat;info;kwd"
-		info->fileSource.creator = &(Plugin::createFileSource<FileSourcePlugin>);
+		info->fileSource.name = "Intan File Source";
+		info->fileSource.extensions = "rhd"; //Semicolon separated list of supported extensions. Eg: "txt;dat;info;kwd"
+		info->fileSource.creator = &(Plugin::createFileSource<IntanFileSourcePlugin>);
 		break;
 
 	default:
